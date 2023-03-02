@@ -7,6 +7,9 @@ public class Side extends Product {
     public Side(int id, String name, int cal, int price) {
         super(id, name, cal, price);
     }
+    public Side(Side side){
+        super(side.getName(), side.getCal(), side.getPrice());
+    }
 
     public int getKetchup() {
         return ketchup;

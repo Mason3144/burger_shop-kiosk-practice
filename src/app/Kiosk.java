@@ -15,16 +15,24 @@ public class Kiosk {
 
         Menu menu = new Menu(products);
 
-        Cart cart = new Cart();
+        Cart cart = new Cart(productRepository,menu);
 
 
         while(true){
             //메뉴 출력
             menu.printMenu();
-            String input = scanner.nextLine();
-            cart.addToCart(Integer.parseInt(input));
 
-            break;
+            //메뉴선택
+            String input = scanner.nextLine();
+            if(input.equals("+")){
+
+                break;
+            }else {
+                int menuNum = Integer.parseInt(input);
+                if(menuNum==0) cart.printCart();
+                else if(menuNum>0 && menuNum <= products.length) cart.addToCart(menuNum);
+                else System.out.println("잘못된 입력입니다. [enter]를 눌러 초기메뉴로 돌아가주세요.");
+            }
         }
 
 

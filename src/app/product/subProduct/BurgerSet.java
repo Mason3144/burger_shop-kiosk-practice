@@ -7,8 +7,8 @@ public class BurgerSet extends Product {
     private Side side;
     private Drink drink;
 
-    public BurgerSet(int id, String name, int cal, int price, Hamburger hamburger, Side side, Drink drink) {
-        super(id, name, cal, price);
+    public BurgerSet( String name, int cal, int price, Hamburger hamburger, Side side, Drink drink) {
+        super(name, cal, price);
         this.hamburger = hamburger;
         this.side = side;
         this.drink = drink;

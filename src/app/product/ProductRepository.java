@@ -19,6 +19,8 @@ public class ProductRepository {
         return products;
     }
     public Product findById(int id){
+        if(id>products.length) return null;
         return products[--id];
+
     }
 }

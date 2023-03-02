@@ -3,20 +3,25 @@ package app.product.subProduct;
 import app.product.Product;
 
 public class Hamburger extends Product {
-    private boolean isSet = false;
-    private int setPrice;
-    public Hamburger(int id, String name, int cal, int price,int setPrice) {
+    private boolean isBurgerSet = false;
+    private int burgerSetPrice;
+    public Hamburger(int id, String name, int cal, int price,int burgerSetPrice) {
         super(id, name, cal, price);
-        this.setPrice = setPrice;
+        this.burgerSetPrice = burgerSetPrice;
     }
 
-    public boolean isSet() {
-        return isSet;
+    public Hamburger(Hamburger hamburger) {
+        super(hamburger.getName(), hamburger.getCal(), hamburger.getPrice());
+        this.burgerSetPrice = hamburger.getburgerSetPrice();
     }
-    public void setSet(boolean set) {
-        isSet = set;
+
+    public boolean isBurgerSet() {
+        return isBurgerSet;
     }
-    public int getSetPrice() {
-        return setPrice;
+    public void setBurgerSet(boolean set) {
+        isBurgerSet = set;
+    }
+    public int getburgerSetPrice() {
+        return burgerSetPrice;
     }
 }

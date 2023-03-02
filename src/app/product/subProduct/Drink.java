@@ -7,6 +7,9 @@ public class Drink extends Product {
     public Drink(int id, String name, int cal, int price) {
         super(id, name, cal, price);
     }
+    public Drink(Drink drink){
+        super(drink.getName(), drink.getCal(), drink.getPrice());
+    }
 
     public boolean hasstraw() {
         return hasstraw;

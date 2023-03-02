@@ -29,7 +29,7 @@ public class Menu {
 
     }
 
-    private void printDrink() {
+    public void printDrink() {
         System.out.println("🥤 음료");
         for(Product product: products){
             if(product instanceof Drink) {
@@ -39,7 +39,7 @@ public class Menu {
         System.out.println();
     }
 
-    private void printSide() {
+    public void printSide() {
         System.out.println("🍟 사이드");
         for(Product product: products){
             if(product instanceof Side) {

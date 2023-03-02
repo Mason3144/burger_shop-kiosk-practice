@@ -6,6 +6,11 @@ public abstract class Product {
     private int cal;
     private int price;
 
+    public Product( String name, int cal, int price) {  //생성자 오버로딩
+        this.name = name;
+        this.cal = cal;
+        this.price = price;
+    }
     public Product(int id, String name, int cal, int price) {
         this.id = id;
         this.name = name;
