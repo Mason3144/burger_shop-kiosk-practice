@@ -26,6 +26,14 @@ public class Cart {
     public void printCart() {
         System.out.println();
         System.out.println("🧺 장바구니");
+        printCartDetail();
+
+        System.out.println("이전으로 돌아가려면 엔터를 누르세요. ");
+        scanner.nextLine();
+
+    }
+
+    protected void printCartDetail() {
         System.out.println("-".repeat(50));
 
         for(Product item:items){
@@ -50,17 +58,18 @@ public class Cart {
         }
 
         System.out.println("-".repeat(50));
-        System.out.printf("합계 : %d원\n", totalPrice);
-
-        System.out.println("이전으로 돌아가려면 엔터를 누르세요. ");
-
+        System.out.printf("금액 합계 : %d원\n", totalPrice);
     }
 
     public void addToCart(int productId){
         Product product = productRepository.findById(productId);
 
-        // 새로운 메소드를 만들어 product에 새로운객체를 생성한뒤 할당
 
+        // 기존의 인스턴스를 사용하게되면 아이템을 중복선택할시 옵션값이 동일하게 적용된다.
+        // 그러므로 기존에 productRepository에 저장된 인스턴스가 아닌 새로운 인스턴스를 생성하여 장바구니에 저장
+        if(product instanceof Hamburger) product = new Hamburger((Hamburger) product);
+        else if(product instanceof Side) product = new Side((Side) product);
+        else if(product instanceof Drink) product = new Drink((Drink) product);
 
         chooseOption(product);
 
@@ -72,7 +81,7 @@ public class Cart {
         items = Arrays.copyOf(items,items.length+1);
         items[items.length-1] = product;
         System.out.printf("[😊] %s를(을) 장바구니에 담았습니다. [enter]를 눌러 초기메뉴로 돌아가주세요.\n",product.getName());
-        System.out.println();
+        scanner.nextLine();
     };
 
 
@@ -89,23 +98,18 @@ public class Cart {
             System.out.println("빨대가 필요하신가요? (1)_예 (2)_아니오");
             if(Integer.parseInt(scanner.nextLine())==2) ((Drink) product).setHasstraw(false);
         }
-
-
-
-
-
-
-
     }
     private BurgerSet composeSet(Hamburger hamburger){
         System.out.println("사이드를 골라주세요");
         menu.printSide();
         Side side = (Side) productRepository.findById(Integer.parseInt(scanner.nextLine()));
+        side = new Side(side); // 기존에 productRepository에 저장된 인스턴스가 아닌 새로운 인스턴스를 생성하여 장바구니에 저장
         chooseOption(side);
 
         System.out.println("음료를 골라주세요");
         menu.printDrink();
         Drink drink = (Drink) productRepository.findById(Integer.parseInt(scanner.nextLine()));
+        drink = new Drink(drink);
         chooseOption(drink);
 
         return new BurgerSet(
