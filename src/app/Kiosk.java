@@ -1,13 +1,20 @@
 package app;
 
+import app.product.Product;
+import app.product.ProductRepository;
+
+
 public class Kiosk {
 
     void operate(){
-        boolean repeat = true;
+        ProductRepository productRepository = new ProductRepository();
+        Product[] products = productRepository.getProducts();
+        Menu menu = new Menu(products);
 
-        while(repeat){
+        //메뉴 출력
+        menu.printMenu();
 
-        }
+
     };
 
 }
