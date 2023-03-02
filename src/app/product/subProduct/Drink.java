@@ -3,9 +3,16 @@ package app.product.subProduct;
 import app.product.Product;
 
 public class Drink extends Product {
-    boolean straw = true;
+    boolean hasstraw = true;
     public Drink(int id, String name, int cal, int price) {
         super(id, name, cal, price);
     }
-    public void option(){};
+
+    public boolean hasstraw() {
+        return hasstraw;
+    }
+
+    public void setHasstraw(boolean hasstraw) {
+        this.hasstraw = hasstraw;
+    }
 }

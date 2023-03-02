@@ -3,16 +3,31 @@ package app;
 import app.product.Product;
 import app.product.ProductRepository;
 
+import java.util.Scanner;
 
 public class Kiosk {
 
     void operate(){
+        Scanner scanner = new Scanner(System.in);
+
         ProductRepository productRepository = new ProductRepository();
         Product[] products = productRepository.getProducts();
+
         Menu menu = new Menu(products);
 
-        //메뉴 출력
-        menu.printMenu();
+        Cart cart = new Cart();
+
+
+        while(true){
+            //메뉴 출력
+            menu.printMenu();
+            String input = scanner.nextLine();
+            cart.addToCart(Integer.parseInt(input));
+
+            break;
+        }
+
+
 
 
     };

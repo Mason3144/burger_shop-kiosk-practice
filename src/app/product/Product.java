@@ -29,5 +29,4 @@ public abstract class Product {
         return price;
     }
 
-    protected abstract void option();
 }
