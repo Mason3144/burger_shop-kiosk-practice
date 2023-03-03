@@ -1,14 +1,17 @@
 package app.discount.discountCondition;
 
-import app.discount.discountPolicy.FixedAmountDiscountPolicy;
-import app.discount.discountPolicy.FixedRateDiscountPolicy;
+import app.discount.discountPolicy.DiscountPolicy;
 
 import java.util.Scanner;
 
-public class TeenDiscountCondition  {
+public class TeenDiscountCondition implements DiscountCondition {
     // 500원 할인
     private boolean isEligible=false;
-    private FixedAmountDiscountPolicy fixedAmountDiscountPolicy= new FixedAmountDiscountPolicy(500);
+    private DiscountPolicy discountPolicy;
+
+    public TeenDiscountCondition(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
 
     public boolean getIsEligible() {
         return isEligible;
@@ -22,6 +25,6 @@ public class TeenDiscountCondition  {
         if(scanner.nextLine().equals("1")) setEligible(true);
     }
     public int applyDiscount(int price){
-        return fixedAmountDiscountPolicy.calculateDiscountedPrice(price);
+        return discountPolicy.calculateDiscountedPrice(price);
     }
 }

@@ -1,10 +1,10 @@
 package app.discount.discountCondition;
 
-import app.discount.discountPolicy.FixedRateDiscountPolicy;
+import app.discount.discountPolicy.DiscountPolicy;
 
 import java.util.Scanner;
 
-public class StudentDiscountCondition  {
+public class StudentDiscountCondition implements DiscountCondition {
     //10%할인
 
     // 종합 policy만들어서 통합해보기
@@ -15,7 +15,11 @@ public class StudentDiscountCondition  {
         할인 적용 → applyDiscount() 메서드
     * */
     private boolean isEligible=false;
-    private FixedRateDiscountPolicy fixedRateDiscountPolicy= new FixedRateDiscountPolicy(10);
+    private DiscountPolicy discountPolicy;
+
+    public StudentDiscountCondition(DiscountPolicy discountPolicy) {
+        this.discountPolicy = discountPolicy;
+    }
 
     public boolean getIsEligible() {
         return isEligible;
@@ -29,6 +33,6 @@ public class StudentDiscountCondition  {
         if(scanner.nextLine().equals("1")) setEligible(true);
     }
     public int applyDiscount(int price){
-        return fixedRateDiscountPolicy.calculateDiscountedPrice(price);
+        return discountPolicy.calculateDiscountedPrice(price);
     }
 }
