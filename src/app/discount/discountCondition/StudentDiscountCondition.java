@@ -5,15 +5,6 @@ import app.discount.discountPolicy.DiscountPolicy;
 import java.util.Scanner;
 
 public class StudentDiscountCondition implements DiscountCondition {
-    //10%할인
-
-    // 종합 policy만들어서 통합해보기
-    /*
-    * 할인 조건 검사 → checkDiscountCondition() 메서드
-        할인 조건 검사 결과 → isSatisfied 필드
-        적용시킬 할인 정책 → fixedRateDiscountPolicy / fixedAmountDiscountPolicy 필드
-        할인 적용 → applyDiscount() 메서드
-    * */
     private boolean isEligible=false;
     private DiscountPolicy discountPolicy;
 

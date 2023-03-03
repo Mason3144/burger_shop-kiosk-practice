@@ -5,7 +5,6 @@ import app.discount.discountPolicy.DiscountPolicy;
 import java.util.Scanner;
 
 public class TeenDiscountCondition implements DiscountCondition {
-    // 500원 할인
     private boolean isEligible=false;
     private DiscountPolicy discountPolicy;
 
