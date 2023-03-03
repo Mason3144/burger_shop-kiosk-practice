@@ -118,8 +118,8 @@ public class Cart {
 
         return new BurgerSet(
                 hamburger.getName()+"세트",
-                hamburger.getburgerSetPrice(),
                 hamburger.getCal()+side.getCal()+drink.getCal(),
+                hamburger.getburgerSetPrice(),
                 hamburger,
                 side,
                 drink
