@@ -61,6 +61,10 @@ public class Cart {
         System.out.printf("금액 합계 : %d원\n", totalPrice);
     }
 
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
     public void addToCart(int productId){
         Product product = productRepository.findById(productId);
 
