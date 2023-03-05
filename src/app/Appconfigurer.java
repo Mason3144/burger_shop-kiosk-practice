@@ -18,8 +18,9 @@ public class Appconfigurer {
                     new TeenDiscountCondition(new FixedAmountDiscountPolicy(500))
             }
     );
-
     private Order order = new Order(cart(),discount());
+
+
     public ProductRepository productRepository(){
         return productRepository;
     }

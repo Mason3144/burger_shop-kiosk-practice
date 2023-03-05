@@ -1,13 +1,12 @@
 package app;
 
 import app.discount.Discount;
-import app.discount.discountCondition.DiscountCondition;
 
 
 public class Order {
     private Cart cart;
     private Discount discount;
-    private DiscountCondition[] discountConditions;
+
 
     public Order(Cart cart,Discount discount) {
         this.cart = cart;
